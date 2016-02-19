@@ -13,7 +13,7 @@ At Inverse, we usually pair this extension with [IndustryFactoryInstance](https:
 ```js
 import { factory } from "industry"
 import { factory_instance } from "industry-factory-instance"
-import { factory_state } from "../../"
+import { factory_state } from "industry-factory-state"
 
 let test = factory()
   .set("factory_instance", factory_instance)
