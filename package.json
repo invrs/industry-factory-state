@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/invrs/industry-factory-state#readme",
   "dependencies": {
+    "immutable": "^3.7.6"
   },
   "devDependencies": {
     "babel": "^6.5.2",
