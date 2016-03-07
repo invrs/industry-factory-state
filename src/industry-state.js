@@ -1,6 +1,6 @@
 import { merge, toObjects } from "./args"
 
-export let factory_state = Class =>
+export let state = Class =>
   class extends Class {
     static factory(...args) {
       if (super.factory) {

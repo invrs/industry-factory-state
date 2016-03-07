@@ -9,6 +9,6 @@ export function merge(args, state = Immutable.Map()) {
 
 export function toObjects(args) {
   return args.filter(
-    item => (item && !item.then) && typeof item == "object"
+    item => item && typeof item == "object"
   )
 }

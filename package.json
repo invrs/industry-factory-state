@@ -1,5 +1,5 @@
 {
-  "name": "industry-factory-state",
+  "name": "industry-state",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/invrs/industry-factory-state.git"
+    "url": "git+ssh://git@github.com/invrs/industry-state.git"
   },
   "author": "Winton Welsh <winton@inverse.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/invrs/industry-factory-state/issues"
+    "url": "https://github.com/invrs/industry-state/issues"
   },
-  "homepage": "https://github.com/invrs/industry-factory-state#readme",
+  "homepage": "https://github.com/invrs/industry-state#readme",
   "dependencies": {
     "immutable": "^3.7.6"
   },
@@ -35,7 +35,7 @@
     "babel-plugin-transform-runtime": "^6.5.2",
     "babel-runtime": "^6.3.19",
     "industry": "",
-    "industry-factory-instance": "",
+    "industry-instance": "",
     "jasmine": "^2.4.1",
     "source-map-support": "^0.4.0"
   }

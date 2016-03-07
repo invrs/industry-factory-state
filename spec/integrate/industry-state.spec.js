@@ -1,14 +1,14 @@
 import { factory } from "industry"
-import { factory_instance } from "industry-factory-instance"
-import { factory_state } from "../../"
+import { instance } from "industry-instance"
+import { state } from "../../"
 
-describe("factory_state", () => {
+describe("state", () => {
   let test, id
 
   function makeTest(id) {
     return factory()
-      .set("factory_instance", factory_instance)
-      .set("factory_state", factory_state)
+      .set("instance", instance)
+      .set("state", state)
       .base(class {
         constructor() {
           this.id = id
