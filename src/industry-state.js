@@ -2,6 +2,19 @@ import { merge, toObjects } from "./args"
 
 export let state = Class =>
   class extends Class {
+    constructor(...args) {
+      super(...args)
+
+      let ignore = [ "functions", "state" ]
+
+      for (let [ name, fn ] of this.functions().entries()) {
+        if (ignore.indexOf(name) == -1) {
+          this[name] = (...args) =>
+            fn.bind(this)({ ...args, state: this.state() })
+        }
+      }
+    }
+
     static factory(...args) {
       if (super.factory) {
         let instance = super.factory(...args)
