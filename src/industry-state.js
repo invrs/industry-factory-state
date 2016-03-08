@@ -4,15 +4,6 @@ export let state = Class =>
   class extends Class {
     constructor(...args) {
       super(...args)
-
-      let ignore = [ "functions", "state" ]
-
-      for (let [ name, fn ] of this.functions().entries()) {
-        if (ignore.indexOf(name) == -1) {
-          this[name] = (...args) =>
-            fn.bind(this)({ ...args, state: this.state() })
-        }
-      }
     }
 
     static factory(...args) {
@@ -30,6 +21,17 @@ export let state = Class =>
         return super.state(this._state.toJS())
       } else {
         return this._state.toJS()
+      }
+    }
+
+    stateful(ignore = []) {
+      ignore = ignore.concat([ "functions", "state" ])
+
+      for (let [ name, fn ] of this.functions().entries()) {
+        if (ignore.indexOf(name) == -1) {
+          this[name] = (...args) =>
+            fn.bind(this)({ ...args, state: this.state() })
+        }
       }
     }
   }

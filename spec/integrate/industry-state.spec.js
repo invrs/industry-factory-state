@@ -15,6 +15,7 @@ describe("state", () => {
       .set("state", state)
       .base(class {
         constructor() {
+          this.stateful()
           this.id = id
           this.rand = Math.random()
         }
