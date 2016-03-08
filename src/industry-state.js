@@ -25,7 +25,7 @@ export let state = Class =>
     }
 
     stateful(ignore = []) {
-      ignore = ignore.concat([ "functions", "state" ])
+      ignore = ignore.concat([ "functions", "state", "stateful" ])
 
       for (let [ name, fn ] of this.functions().entries()) {
         if (ignore.indexOf(name) == -1) {
