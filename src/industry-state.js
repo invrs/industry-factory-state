@@ -32,7 +32,7 @@ export let state = Class =>
       for (let [ name, fn ] of this.functions().entries()) {
         if (ignore.indexOf(name) == -1) {
           this[name] = (...args) =>
-            fn.bind(this)({ ...args, state: this.state() })
+            fn.bind(this)(...args, { state: this.state() })
         }
       }
     }
