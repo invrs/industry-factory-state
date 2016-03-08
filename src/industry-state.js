@@ -26,7 +26,7 @@ export let state = Class =>
 
     stateful(ignore = []) {
       ignore = ignore.concat(
-        [ "functions", "include", "state", "stateful" ]
+        [ "functions", "include", "standardIO", "state", "stateful" ]
       )
 
       for (let [ name, fn ] of this.functions().entries()) {
