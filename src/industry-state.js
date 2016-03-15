@@ -9,7 +9,7 @@ export let state = Class =>
     static factory(...args) {
       if (super.factory) {
         let instance = super.factory(...args)
-        instance._state = merge(toObjects(args), instance._state)
+        instance.state(...args)
         return instance
       }
     }
@@ -17,8 +17,8 @@ export let state = Class =>
     state(...args) {
       this._state = merge(toObjects(args), this._state)
 
-      if (super.state) {
-        return super.state(this._state.toJS())
+      if (this.updated && args.length) {
+        return this.updated()
       } else {
         return this._state.toJS()
       }
