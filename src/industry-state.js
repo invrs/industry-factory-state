@@ -1,4 +1,4 @@
-import { merge, toObjects } from "./args"
+import { mergeObjects, toObjects } from "standard-io"
 
 export let state = Class =>
   class extends Class {
@@ -15,12 +15,12 @@ export let state = Class =>
     }
 
     state(...args) {
-      this._state = merge(toObjects(args), this._state)
+      this._state = mergeObjects(toObjects(args), this._state)
 
       if (this.updated && args.length) {
         return this.updated()
       } else {
-        return this._state.toJS()
+        return this._state
       }
     }
 
