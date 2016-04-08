@@ -14,9 +14,7 @@ describe("state", () => {
       .set("standard_io", standard_io)
       .set("state", state)
       .base(class {
-        constructor() {
-          this.standardIO()
-          this.stateful()
+        init() {
           this.id = id
           this.rand = Math.random()
         }

@@ -24,13 +24,12 @@ export let state = Class =>
       }
     }
 
-    stateful(ignore = []) {
-      ignore = ignore.concat(
-        [ "functions", "include", "standardIO", "state", "stateful" ]
-      )
+    beforeInit() {
+      let ignore = this.Class.industry().ignore.Class
 
-      for (let [ name, fn ] of this.functions().entries()) {
+      for (let name of this.functions()) {
         if (ignore.indexOf(name) == -1) {
+          let fn = this[name]
           this[name] = (...args) =>
             fn.bind(this)(...args, { state: this.state() })
         }
