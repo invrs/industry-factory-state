@@ -48,6 +48,6 @@ describe("state", () => {
   })
 
   it("adds state to function input", () => {
-    expect(test({ a: 1 }).hello().value[0].state).toEqual({ a: 1 })
+    expect(test({ a: 1 }).hello().value.state).toEqual({ a: 1 })
   })
 })

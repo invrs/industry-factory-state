@@ -6,6 +6,27 @@ export let state = Class =>
       super(...args)
     }
 
+    static beforeFactoryOnce() {
+      this.industry({
+        ignore: {
+          instance: [ "state" ]
+        }
+      })
+      super.beforeFactoryOnce()
+    }
+
+    beforeInit() {
+      let ignore = this.Class.industry().ignore.Class
+      for (let name in this.functions()) {
+        if (ignore.indexOf(name) == -1) {
+          let fn = this[name]
+          this[name] = (...args) =>
+            fn.bind(this)(...args, { state: this.state() })
+        }
+      }
+      super.beforeInit()
+    }
+
     static factory(...args) {
       if (super.factory) {
         let instance = super.factory(...args)
@@ -21,18 +42,6 @@ export let state = Class =>
         return this.updated()
       } else {
         return this._state
-      }
-    }
-
-    beforeInit() {
-      let ignore = this.Class.industry().ignore.Class
-
-      for (let name of this.functions()) {
-        if (ignore.indexOf(name) == -1) {
-          let fn = this[name]
-          this[name] = (...args) =>
-            fn.bind(this)(...args, { state: this.state() })
-        }
       }
     }
   }
