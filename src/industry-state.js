@@ -9,6 +9,7 @@ export let state = Class =>
     static beforeFactoryOnce() {
       this.industry({
         ignore: {
+          args: [ "state" ],
           instance: [ "state" ]
         }
       })

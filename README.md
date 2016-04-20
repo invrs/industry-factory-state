@@ -18,11 +18,7 @@ import { state } from "industry-state"
 let test = factory()
   .set("instance", instance)
   .set("state", state)
-  .base(class {
-    constructor() {
-      this.stateful()
-    }
-  })
+  .base(class {})
 
 test({ a: 1, b: 2 })
 test().state() // { a: 1, b: 2 }
