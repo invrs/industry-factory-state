@@ -1,12 +1,10 @@
 # IndustryState [![Build Status](https://travis-ci.org/invrs/industry-state.svg?branch=master)](https://travis-ci.org/invrs/industry-state)
 
-Allows [Industry](https://github.com/invrs/industry) factory functions to receive one or more objects that update state.
+Immutable state that is updated via factory function or from the instance.
 
 ## Requirements
 
 This extension requires that the factory function returns a stateful object.
-
-At Inverse, we usually pair this extension with [IndustryFactoryInstance](https://github.com/invrs/industry-instance).
 
 ## Usage
 
