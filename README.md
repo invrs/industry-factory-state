@@ -16,10 +16,18 @@ import { state } from "industry-state"
 let test = factory()
   .set("instance", instance)
   .set("state", state)
-  .base(class {})
 
-test({ a: 1, b: 2 })
+test = test(class {
+  init() {
+    this.state({ a: 1 })
+  }
+
+  a({ state: { a } }) {
+    return a
+  }
+})
+
+test({ b: 2 })
 test().state() // { a: 1, b: 2 }
-test({ c: 3 }, { d: 4 })
-test().state() // { a: 1, b: 2, c: 3, d: 4 }
+test.a() // 1
 ```
