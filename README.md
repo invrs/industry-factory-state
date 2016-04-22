@@ -13,11 +13,7 @@ import { factory } from "industry"
 import { instance } from "industry-instance"
 import { state } from "industry-state"
 
-let test = factory()
-  .set("instance", instance)
-  .set("state", state)
-
-test = test(class {
+class Test {
   init() {
     this.state({ a: 1 })
   }
@@ -25,7 +21,11 @@ test = test(class {
   a({ state: { a } }) {
     return a
   }
-})
+}
+
+let test = factory(Test)
+  .set("instance", instance)
+  .set("state", state)
 
 test({ b: 2 })
 test().state() // { a: 1, b: 2 }
