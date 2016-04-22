@@ -1,6 +1,6 @@
 # IndustryState [![Build Status](https://travis-ci.org/invrs/industry-state.svg?branch=master)](https://travis-ci.org/invrs/industry-state)
 
-Immutable state that is updated via factory function or from the instance.
+Immutable state for your factories.
 
 ## Requirements
 
