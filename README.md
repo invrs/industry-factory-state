@@ -10,6 +10,7 @@ This extension requires that the factory function returns a stateful object.
 
 ```js
 import { factory } from "industry"
+import { functions } from "industry-functions"
 import { instance } from "industry-instance"
 import { standard_io } from "industry-standard-io"
 import { state } from "industry-state"
@@ -25,6 +26,7 @@ class Test {
 }
 
 let test = factory(Test)
+  .set("functions", functions)
   .set("instance", instance)
   .set("state", state)
   .set("standard_io", standard_io)
